@@ -57,20 +57,19 @@ lib-shared:
 example: lib-shared $(EXAMPLSRC)
 	$(CXX) -o $(EXAMPLNAME) $(CXXDEBUG) -I$(SOURCEDIR) $(EXAMPLSRC) $(EXAMPLFLAGS)
 
+install: $(SOLIBNAME)
+	sudo install -m 0755 -d                               /usr/local/include
+	sudo install -m 0644 $(SOURCEDIR)/serialConnection.h  /usr/local/include
+	sudo install -m 0755 -d                         /usr/local/lib
+	sudo install -m 0644 libserialConnection.so     /usr/local/lib
+	$(LDCONFIG)
 
-#g++ -fPIC -shared myclass.cc -o myclass.so
-#g++ class_user.cc -ldl -o class_user
-#-Wall
-#ar -cvq libctest.a ctest1.o ctest2.o
-#ar -t libctest.a
-#
-#main: libshared.so main.o
-    #$(CXX) -o main  main.o -L. -lshared
-#
-#libshared.so: shared.cpp
-    #$(CXX) -fPIC -c shared.cpp -o shared.o
-    #$(CXX) -shared  -Wl,-soname,libshared.so -o libshared.so shared.o
-#
-#clean:
+uninstall:
+	sudo rm -f /usr/local/include/serialConnection.h
+	sudo rm -f /usr/local/lib/libserialConnection.so
+	$(LDCONFIG)
+
+
+clean:
     #$rm *.o *.so
 
