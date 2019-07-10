@@ -42,7 +42,7 @@ CXXLIBSOFLAGS = -fPIC -shared
 #
 SOURCEDIR = ../src
 LIBSRC = $(SOURCEDIR)/serialConnection.cpp
-EXAMPLSRC = $(SOURCEDIR)/serialTest.cpp
+EXAMPLSRC = serialTest.cpp
 EXAMPLNAME = serialTest
 EXAMPLFLAGS = -I. -L ../build -l serialConnection
 LIBOBJ = serialConnection.o
