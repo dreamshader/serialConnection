@@ -55,7 +55,7 @@ lib-shared:
 	$(CXX) -shared  -Wl,-soname,$(SOLIBNAME) -o $(SOLIBNAME) $(LIBOBJ)
 
 example: lib-shared $(EXAMPLSRC)
-	$(CXX) -o $(EXAMPLNAME) $(CXXDEBUG) $(EXAMPLSRC) $(EXAMPLFLAGS)
+	$(CXX) -o $(EXAMPLNAME) $(CXXDEBUG) -I$(SOURCEDIR) $(EXAMPLSRC) $(EXAMPLFLAGS)
 
 
 #g++ -fPIC -shared myclass.cc -o myclass.so
